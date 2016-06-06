@@ -40,7 +40,7 @@ def main_directory():
 	if os.path.exists("Codes"):
 		os.chdir("Codes")
 	else:
-		print("[Glotio Code Downloader] Creating directory 'Codes' ...")
+		print("[Glot.io Code Downloader] Creating directory 'Codes' ...")
 		os.makedirs("Codes")
 		os.chdir("Codes")
 
@@ -50,7 +50,7 @@ def code_directory(title_dir):
 	if os.path.exists(title_dir):
 		os.chdir(title_dir)
 	else:
-		print("\n[Glotio Code Downloader] Creating directory '" + title_dir + "' ...")
+		print("\n[Glot.io Code Downloader] Creating directory '" + title_dir + "' ...")
 		os.makedirs(title_dir)
 		os.chdir(title_dir)
 
@@ -67,7 +67,7 @@ def get_codes(url, filenames):
 	get_sixth_code = soup.findAll('div', {'class' : 'editor hide'}, id='editor-6')
 	codes_list = [get_first_code, get_second_code, get_third_code, get_fourth_code, get_fifth_code, get_sixth_code]
 
-	announcer = "[Glotio Code Downloader] Downloading code '"
+	announcer = "[Glot.io Code Downloader] Downloading code '"
 	announcer_end = "' ..."
 
 	index_number = 0
