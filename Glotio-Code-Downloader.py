@@ -76,7 +76,7 @@ def get_codes(url, filenames):
 		print(announcer + filenames[index_number] + announcer_end, end="")
 		file_code = open(filenames[index_number], "wb")
 		try:
-			file_code.write(code[0].contents[0].strip())
+			file_code.write(code[0].contents[0].strip().encode('utf-8'))
 			print(" OK!")
 			file_code.close()
 			index_number += 1
