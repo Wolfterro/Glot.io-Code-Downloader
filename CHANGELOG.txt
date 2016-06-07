@@ -1,0 +1,19 @@
+Glot.io Code Downloader
+=======================
+
+Download code and text snippets from glot.io!
+---------------------------------------------
+
+CHANGELOG
+=========
+
+VERSION 1.1
+ - Changes in the program's code:
+ --- Better error handling for wrong/invalid URL or lack of Internet connection by using urllib2 urlparser and try/exception
+ --- Changed the way to retrieve the snippet's title, it will search for a h2 tag with id 'snippet-title' instead of the page's title
+ --- Removed the announcer and announcer_end variables
+
+#-------------------------------------------------------------------------------------------------------------------
+
+VERSION 1.0
+ - Initial version of the program

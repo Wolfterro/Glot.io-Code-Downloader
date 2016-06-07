@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
-from urllib2 import urlparse
 from bs4 import BeautifulSoup
 
 import os
@@ -33,7 +32,7 @@ import urllib2
 * SOFTWARE.
 '''
 
-version = "1.1" 
+version = "1.0" 
 
 # Checking, Creating and Accessing the Main Directory
 # ===================================================
@@ -68,10 +67,13 @@ def get_codes(url, filenames):
 	get_sixth_code = soup.findAll('div', {'class' : 'editor hide'}, id='editor-6')
 	codes_list = [get_first_code, get_second_code, get_third_code, get_fourth_code, get_fifth_code, get_sixth_code]
 
+	announcer = "[Glot.io Code Downloader] Downloading code '"
+	announcer_end = "' ..."
+
 	index_number = 0
 
 	for code in codes_list:
-		print("[Glot.io Code Downloader] Downloading code '" + filenames[index_number] + "' ...", end="")
+		print(announcer + filenames[index_number] + announcer_end, end="")
 		file_code = open(filenames[index_number], "wb")
 		try:
 			file_code.write(code[0].contents[0].strip().encode('utf-8'))
@@ -89,17 +91,11 @@ def get_codes(url, filenames):
 def code_information(url):
 	global response
 
-	try:
-		response = urllib2.urlopen(url).read().decode('utf-8')
-	except Exception:
-		print("\n[Glot.io Code Downloader] Error! Could not open URL '" + url + "'!")
-		print("[Glot.io Code Downloader] Check the URL or Internet connection and try again!")
-		sys.exit(1)
-
+	response = urllib2.urlopen(url).read().decode('utf-8')
 	soup = BeautifulSoup(response, 'html.parser')
 	
-	get_title = soup.find('h2', id='snippet-title')
-	get_title_dir = get_title.text.replace("/", "-")
+	get_title = soup.title.string
+	get_title_dir = get_title.replace("/", "-").split(" - ", 1)[0]
 
 	get_filenames = soup.findAll('span', {'class' : 'filename'})
 	filename_list = []
@@ -120,14 +116,9 @@ def main():
 
 	url = raw_input("Insert the Snippet's URL: ")
 
-	url_split = urlparse.urlsplit(url)
-	if str(url_split[1]) != "glot.io":
-		print("\n[Glot.io Code Downloader] Error! Wrong website! Check the URL and try again!")
-		sys.exit(1)
-	else:
-		title, title_dir, filenames = code_information(url)
-		code_directory(title_dir)
-		get_codes(url, filenames)
+	title, title_dir, filenames = code_information(url)
+	code_directory(title_dir)
+	get_codes(url, filenames)
 
 # Initializing Program
 # ====================
