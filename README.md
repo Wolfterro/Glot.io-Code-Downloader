@@ -8,6 +8,8 @@
 ###### Downloaded snippets will be organized inside the 'Codes' directory by creating a new directory inside it with the snippet's name as the directory's name.
 ###### You'll just need to execute the program and insert the desired snippet's URL. The program will do the rest.
 
+### [Check the Changelog for more informations about new updates!](https://raw.github.com/Wolfterro/Glot.io-Code-Downloader/master/CHANGELOG.txt)
+
 #### Requirements:
 - Python 2.x
 - BeautifulSoup
