@@ -12,11 +12,7 @@
 
 #### Requirements:
 - Python 2.x
-- BeautifulSoup
-
-###### You'll need the BeautifulSoup library to execute the program. If you don't have it, you can download it by executing the code below:
-
-      sudo pip install beautifulsoup4
+- ~~BeautifulSoup~~ - No longer needed since version 1.2
 
 #### Download:
 
