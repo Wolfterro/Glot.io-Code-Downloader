@@ -7,6 +7,15 @@ Download code and text snippets from glot.io!
 CHANGELOG
 =========
 
+VERSION 1.2
+ - Changes in the program's code:
+ --- Program now uses JSON parsing by using the glot.io API to get the snippet's code, instead of web scrapping for it
+ --- Removed the BeautifulSoup library, it's no longer needed because no web scrapping anymore
+ --- Snippet directories will be created with their name and ID as the directory's name (e.g.: My Snippet-[0123456789]), avoiding snippets with the same name replacing one another
+ --- EXPERIMENTAL: Better support for foreign characters (e.g.: japanese, chinese, korean)
+
+#-------------------------------------------------------------------------------------------------------------------
+
 VERSION 1.1
  - Changes in the program's code:
  --- Better error handling for wrong/invalid URL or lack of Internet connection by using urllib2 urlparser and try/exception
