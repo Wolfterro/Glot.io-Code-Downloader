@@ -1,4 +1,7 @@
 # Glot.io Code Downloader
+
+# DEPRECATED: Use [Snipped](https://github.com/Wolfterro/Snipped) instead!
+
 ### Download code and text snippets from [glot.io](https://glot.io/)!
 
 #### Description:
